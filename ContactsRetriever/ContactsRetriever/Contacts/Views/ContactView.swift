@@ -21,7 +21,7 @@ struct ContactView: View {
             Image(systemName: "chevron.right")
                 .foregroundColor(.gray)
                 .frame(height: 50)
-                .padding()
+                .padding(.trailing, 8)
         }
         .task {
             await viewModel.loadIcon()
