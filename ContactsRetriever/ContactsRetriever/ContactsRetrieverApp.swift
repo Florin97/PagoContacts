@@ -11,6 +11,7 @@ import SwiftUI
 struct ContactsRetrieverApp: App {
     var body: some Scene {
         WindowGroup {
+            ContactsView(viewModel: ContactsViewModel())
         }
     }
 }

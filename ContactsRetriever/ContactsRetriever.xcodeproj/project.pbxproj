@@ -18,6 +18,7 @@
 		A75D2E922B76879D00E8AAAB /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D2E912B76879D00E8AAAB /* ContactsViewModel.swift */; };
 		A75D2E942B7687A500E8AAAB /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D2E932B7687A500E8AAAB /* ContactsView.swift */; };
 		A75D2E962B7687AF00E8AAAB /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D2E952B7687AF00E8AAAB /* ContactsService.swift */; };
+		A75D2E982B76951C00E8AAAB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D2E972B76951C00E8AAAB /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		A75D2E912B76879D00E8AAAB /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		A75D2E932B7687A500E8AAAB /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		A75D2E952B7687AF00E8AAAB /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
+		A75D2E972B76951C00E8AAAB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				A75D2E8F2B767FF600E8AAAB /* ContactView.swift */,
 				A75D2E932B7687A500E8AAAB /* ContactsView.swift */,
+				A75D2E972B76951C00E8AAAB /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A75D2E962B7687AF00E8AAAB /* ContactsService.swift in Sources */,
+				A75D2E982B76951C00E8AAAB /* HeaderView.swift in Sources */,
 				A75D2E8E2B767FB200E8AAAB /* Contact.swift in Sources */,
 				A75D2E922B76879D00E8AAAB /* ContactsViewModel.swift in Sources */,
 				A75D2E892B767F5300E8AAAB /* ContactService.swift in Sources */,

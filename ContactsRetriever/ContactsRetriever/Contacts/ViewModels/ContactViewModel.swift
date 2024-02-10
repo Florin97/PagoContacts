@@ -13,6 +13,7 @@ enum ContactState {
     case loading
 }
 
+@MainActor
 class ContactViewModel: ObservableObject {
     private let contact: Contact
     private let contactService: ContactServiceProtocol

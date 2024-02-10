@@ -13,13 +13,20 @@ struct ContactsView<ViewModelType: ContactsViewModelProtocol>: View {
     
     var body: some View {
         Group {
+            HeaderView()
+                .padding([.leading, .trailing], 8)
+                .padding(.top, 16)
             switch viewModel.state {
             case .idle, .loading:
                 ProgressView("Loading contacts")
             case .loaded(let contacts):
-                List(contacts) { contact in
-                    let contactViewModel = ContactViewModel(contact: contact)
-                    ContactView(viewModel: contactViewModel)
+                List {
+                    Section(header: Text("Contactele mele")) {
+                        ForEach(contacts) { contact in
+                            let contactViewModel = ContactViewModel(contact: contact)
+                            ContactView(viewModel: contactViewModel)
+                        }
+                    }
                 }
             case .error(let error):
                 Text("Error: \(error.localizedDescription)")
