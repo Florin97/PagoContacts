@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A700608D2B782B7C0021CD85 /* ContactViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700608C2B782B7C0021CD85 /* ContactViewModelTest.swift */; };
 		A75D2E472B76487200E8AAAB /* ContactsRetrieverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D2E462B76487200E8AAAB /* ContactsRetrieverApp.swift */; };
 		A75D2E4B2B76487500E8AAAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A75D2E4A2B76487500E8AAAB /* Assets.xcassets */; };
 		A75D2E4E2B76487500E8AAAB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A75D2E4D2B76487500E8AAAB /* Preview Assets.xcassets */; };
@@ -19,6 +20,7 @@
 		A75D2E942B7687A500E8AAAB /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D2E932B7687A500E8AAAB /* ContactsView.swift */; };
 		A75D2E962B7687AF00E8AAAB /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D2E952B7687AF00E8AAAB /* ContactsService.swift */; };
 		A75D2E982B76951C00E8AAAB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D2E972B76951C00E8AAAB /* HeaderView.swift */; };
+		A75D2E9A2B780CC400E8AAAB /* ContactsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75D2E992B780CC400E8AAAB /* ContactsViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,23 +31,16 @@
 			remoteGlobalIDString = A75D2E422B76487200E8AAAB;
 			remoteInfo = ContactsRetriever;
 		};
-		A75D2E5E2B76487600E8AAAB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A75D2E3B2B76487200E8AAAB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A75D2E422B76487200E8AAAB;
-			remoteInfo = ContactsRetriever;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A700608C2B782B7C0021CD85 /* ContactViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModelTest.swift; sourceTree = "<group>"; };
 		A75D2E432B76487200E8AAAB /* ContactsRetriever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsRetriever.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A75D2E462B76487200E8AAAB /* ContactsRetrieverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRetrieverApp.swift; sourceTree = "<group>"; };
 		A75D2E4A2B76487500E8AAAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A75D2E4D2B76487500E8AAAB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A75D2E532B76487500E8AAAB /* ContactsRetrieverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsRetrieverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A75D2E572B76487500E8AAAB /* ContactsRetrieverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRetrieverTests.swift; sourceTree = "<group>"; };
-		A75D2E5D2B76487600E8AAAB /* ContactsRetrieverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsRetrieverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A75D2E882B767F5300E8AAAB /* ContactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactService.swift; sourceTree = "<group>"; };
 		A75D2E8A2B767F8900E8AAAB /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		A75D2E8D2B767FB200E8AAAB /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -54,6 +49,7 @@
 		A75D2E932B7687A500E8AAAB /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		A75D2E952B7687AF00E8AAAB /* ContactsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsService.swift; sourceTree = "<group>"; };
 		A75D2E972B76951C00E8AAAB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		A75D2E992B780CC400E8AAAB /* ContactsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,13 +61,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A75D2E502B76487500E8AAAB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A75D2E5A2B76487600E8AAAB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -95,7 +84,6 @@
 			children = (
 				A75D2E432B76487200E8AAAB /* ContactsRetriever.app */,
 				A75D2E532B76487500E8AAAB /* ContactsRetrieverTests.xctest */,
-				A75D2E5D2B76487600E8AAAB /* ContactsRetrieverUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				A75D2E572B76487500E8AAAB /* ContactsRetrieverTests.swift */,
+				A75D2E992B780CC400E8AAAB /* ContactsViewModelTests.swift */,
+				A700608C2B782B7C0021CD85 /* ContactViewModelTest.swift */,
 			);
 			path = ContactsRetrieverTests;
 			sourceTree = "<group>";
@@ -212,24 +202,6 @@
 			productReference = A75D2E532B76487500E8AAAB /* ContactsRetrieverTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A75D2E5C2B76487600E8AAAB /* ContactsRetrieverUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A75D2E6D2B76487600E8AAAB /* Build configuration list for PBXNativeTarget "ContactsRetrieverUITests" */;
-			buildPhases = (
-				A75D2E592B76487600E8AAAB /* Sources */,
-				A75D2E5A2B76487600E8AAAB /* Frameworks */,
-				A75D2E5B2B76487600E8AAAB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A75D2E5F2B76487600E8AAAB /* PBXTargetDependency */,
-			);
-			name = ContactsRetrieverUITests;
-			productName = ContactsRetrieverUITests;
-			productReference = A75D2E5D2B76487600E8AAAB /* ContactsRetrieverUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -244,10 +216,6 @@
 						CreatedOnToolsVersion = 15.2;
 					};
 					A75D2E522B76487500E8AAAB = {
-						CreatedOnToolsVersion = 15.2;
-						TestTargetID = A75D2E422B76487200E8AAAB;
-					};
-					A75D2E5C2B76487600E8AAAB = {
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = A75D2E422B76487200E8AAAB;
 					};
@@ -268,7 +236,6 @@
 			targets = (
 				A75D2E422B76487200E8AAAB /* ContactsRetriever */,
 				A75D2E522B76487500E8AAAB /* ContactsRetrieverTests */,
-				A75D2E5C2B76487600E8AAAB /* ContactsRetrieverUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -284,13 +251,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		A75D2E512B76487500E8AAAB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A75D2E5B2B76487600E8AAAB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -321,13 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A75D2E582B76487500E8AAAB /* ContactsRetrieverTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A75D2E592B76487600E8AAAB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				A75D2E9A2B780CC400E8AAAB /* ContactsViewModelTests.swift in Sources */,
+				A700608D2B782B7C0021CD85 /* ContactViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,11 +293,6 @@
 			isa = PBXTargetDependency;
 			target = A75D2E422B76487200E8AAAB /* ContactsRetriever */;
 			targetProxy = A75D2E542B76487500E8AAAB /* PBXContainerItemProxy */;
-		};
-		A75D2E5F2B76487600E8AAAB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A75D2E422B76487200E8AAAB /* ContactsRetriever */;
-			targetProxy = A75D2E5E2B76487600E8AAAB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -564,42 +514,6 @@
 			};
 			name = Release;
 		};
-		A75D2E6E2B76487600E8AAAB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 46497QA9BW;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fv.pago.ContactsRetrieverUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ContactsRetriever;
-			};
-			name = Debug;
-		};
-		A75D2E6F2B76487600E8AAAB /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 46497QA9BW;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fv.pago.ContactsRetrieverUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = ContactsRetriever;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -626,15 +540,6 @@
 			buildConfigurations = (
 				A75D2E6B2B76487600E8AAAB /* Debug */,
 				A75D2E6C2B76487600E8AAAB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A75D2E6D2B76487600E8AAAB /* Build configuration list for PBXNativeTarget "ContactsRetrieverUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A75D2E6E2B76487600E8AAAB /* Debug */,
-				A75D2E6F2B76487600E8AAAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

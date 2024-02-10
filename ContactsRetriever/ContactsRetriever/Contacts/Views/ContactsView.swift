@@ -13,13 +13,13 @@ struct ContactsView<ViewModelType: ContactsViewModelProtocol>: View {
     
     var body: some View {
         Group {
-            HeaderView()
-                .padding([.leading, .trailing], 8)
-                .padding(.top, 16)
             switch viewModel.state {
             case .idle, .loading:
                 ProgressView("Loading contacts")
             case .loaded(let contacts):
+                HeaderView()
+                    .padding([.leading, .trailing], 8)
+                    .padding(.top, 16)
                 List {
                     Section(header: Text("Contactele mele")) {
                         ForEach(contacts) { contact in

@@ -13,12 +13,18 @@ enum ContactState {
     case loading
 }
 
-@MainActor
-class ContactViewModel: ObservableObject {
+
+protocol ContactViewModelProtocol: ObservableObject {
+    func loadIcon() async
+    var contactName: String { get }
+    var state: ContactState { get }
+}
+
+class ContactViewModel: ContactViewModelProtocol {
     private let contact: Contact
     private let contactService: ContactServiceProtocol
     
-    @Published var state: ContactState = .loading
+    @Published private(set) var state: ContactState = .loading
     var contactName: String {
         contact.name
     }
@@ -28,6 +34,7 @@ class ContactViewModel: ObservableObject {
         self.contactService = contactService
     }
     
+    @MainActor
     func loadIcon() async {
         if contact.id % 2 == 0 {
             let initials = getInitials(for: contact.name)

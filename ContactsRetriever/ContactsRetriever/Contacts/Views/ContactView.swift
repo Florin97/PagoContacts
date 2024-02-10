@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ContactView: View {
-    @StateObject var viewModel: ContactViewModel
+struct ContactView<viewModelType: ContactViewModelProtocol>: View {
+    @ObservedObject var viewModel: viewModelType
     
     var body: some View {
         HStack {

@@ -8,6 +8,7 @@
 import Combine
 
 enum LoadingState {
+
     case idle
     case loading
     case loaded([Contact])
@@ -30,6 +31,7 @@ class ContactsViewModel: ContactsViewModelProtocol {
     
     @MainActor
     func fetchContacts() async {
+        state = .loading
         do {
             let contacts = try await contactsService.fetchContacts()
             state = .loaded(contacts.filter { $0.status == .active })
