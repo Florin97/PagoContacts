@@ -8,7 +8,7 @@
 import XCTest
 @testable import ContactsRetriever
 
-class MockContactService: ContactsServiceProtocol {
+class MockContactsService: ContactsServiceProtocol {
     var error: Error?
     var contacts: [Contact]?
     var waitTIme: UInt64 = 0
@@ -19,12 +19,28 @@ class MockContactService: ContactsServiceProtocol {
     }
 }
 
+class MockContactsCache: ContactsCacheServiceProtocol {
+    var contacts: [Contact]?
+    
+    func cacheContacts(_ contacts: [ContactsRetriever.Contact]) {
+        self.contacts = contacts
+    }
+    
+    func loadCachedContacts() -> [ContactsRetriever.Contact]? {
+        return contacts
+    }
+    
+    
+}
+
+
 class ContactsViewModelTests: XCTestCase {
     
     func testFetchContactSuccess()  async {
-        let mockService = MockContactService()
+        let mockCacheService = MockContactsCache()
+        let mockService = MockContactsService()
         mockService.contacts = [Contact(id: 1, name: "First Name", email: "email@email.com", gender: .male, status: .active)]
-        let viewModel = ContactsViewModel(contactsService: mockService)
+        let viewModel = ContactsViewModel(contactsService: mockService, contactsCacheService: mockCacheService)
         
         await viewModel.fetchContacts()
         
@@ -38,7 +54,8 @@ class ContactsViewModelTests: XCTestCase {
     }
     
     func testFechOnlyActiveContacts() async {
-        let mockService = MockContactService()
+        let mockService = MockContactsService()
+        let mockCacheService = MockContactsCache()
         mockService.contacts = [
             Contact(id: 1, name: "First Name", email: "email@email.com", gender: .male, status: .active),
             Contact(id: 2, name: "First Name", email: "email@email.com", gender: .male, status: .inactive),
@@ -46,7 +63,7 @@ class ContactsViewModelTests: XCTestCase {
             Contact(id: 4, name: "First Name", email: "email@email.com", gender: .male, status: .inactive),
             Contact(id: 5, name: "First Name", email: "email@email.com", gender: .male, status: .inactive)
         ]
-        let viewModel = ContactsViewModel(contactsService: mockService)
+        let viewModel = ContactsViewModel(contactsService: mockService, contactsCacheService: mockCacheService)
         
         await viewModel.fetchContacts()
         
@@ -60,10 +77,11 @@ class ContactsViewModelTests: XCTestCase {
     }
     
     func testViewModelStates() async {
-        let mockService = MockContactService()
+        let mockService = MockContactsService()
+        let mockCacheService = MockContactsCache()
         mockService.contacts = [Contact(id: 1, name: "First Name", email: "email@email.com", gender: .male, status: .active)]
         mockService.waitTIme = 2
-        let viewModel = ContactsViewModel(contactsService: mockService)
+        let viewModel = ContactsViewModel(contactsService: mockService, contactsCacheService: mockCacheService)
         
         let expectation = XCTestExpectation(description: "Fetch Contact")
         
@@ -71,15 +89,30 @@ class ContactsViewModelTests: XCTestCase {
             return XCTFail("The state Should be idle")
         }
         
-        Task {
-            await viewModel.fetchContacts()
-            expectation.fulfill()
-        }
+        await viewModel.fetchContacts()
+        expectation.fulfill()
         
         await fulfillment(of: [expectation], timeout: 4)
         
         guard case .loaded(_) = viewModel.state else {
             return XCTFail("The State should be loaded after completion")
+        }
+    }
+    
+    func testContactsLoadedFromCache() async {
+        let mockService = MockContactsService()
+        let mockCacheService = MockContactsCache()
+        mockService.contacts = [Contact(id: 1, name: "Service Contact", email: "email@email.com", gender: .male, status: .active)]
+        mockCacheService.contacts = [Contact(id: 1, name: "Cached Contact", email: "email@email.com", gender: .male, status: .active)]
+        let viewModel = ContactsViewModel(contactsService: mockService, contactsCacheService: mockCacheService)
+        
+        await viewModel.fetchContacts()
+        
+        switch viewModel.state {
+        case .loaded(let contacts):
+            XCTAssertTrue(contacts.first?.name == "Cached Contact", "The contact shoul be the cached one" )
+        default:
+            XCTFail("the state should be loaded")
         }
         
     }

@@ -8,7 +8,7 @@
 import Combine
 
 enum LoadingState {
-
+    
     case idle
     case loading
     case loaded([Contact])
@@ -16,25 +16,33 @@ enum LoadingState {
 }
 
 protocol ContactsViewModelProtocol: ObservableObject {
-     var state: LoadingState { get }
-     func fetchContacts() async
+    var state: LoadingState { get }
+    func fetchContacts() async
 }
 
 class ContactsViewModel: ContactsViewModelProtocol {
     @Published private(set) var state: LoadingState = .idle
     
     private let contactsService: ContactsServiceProtocol
+    private let contactsCacheService: ContactsCacheServiceProtocol
     
-    init(contactsService: ContactsServiceProtocol = ContactsService()) {
+    init(contactsService: ContactsServiceProtocol = ContactsService(),
+         contactsCacheService: ContactsCacheServiceProtocol = ContactsCacheService()) {
         self.contactsService = contactsService
+        self.contactsCacheService = contactsCacheService
     }
     
     @MainActor
     func fetchContacts() async {
         state = .loading
         do {
-            let contacts = try await contactsService.fetchContacts()
-            state = .loaded(contacts.filter { $0.status == .active })
+            if let cachedContacts = contactsCacheService.loadCachedContacts() {
+                state = .loaded(cachedContacts)
+            } else {
+                let contacts = try await contactsService.fetchContacts()
+                contactsCacheService.cacheContacts(contacts)
+                state = .loaded(contacts.filter { $0.status == .active })
+            }
         } catch {
             state = .error(error)
         }

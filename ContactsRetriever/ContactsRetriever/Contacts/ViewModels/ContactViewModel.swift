@@ -13,7 +13,6 @@ enum ContactState {
     case loading
 }
 
-
 protocol ContactViewModelProtocol: ObservableObject {
     func loadIcon() async
     var contactName: String { get }
